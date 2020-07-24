@@ -1,0 +1,16 @@
+<div id="app">{{msg}}</div>
+<script src="./mini-vue3.js"></script>
+<script>
+  // 定义一个响应式数据
+  const state = reactive({
+    msg:'message'
+  })
+  // 定义一个使用到响应式数据的dom更新函数
+  effect(()=>{
+    document.getElementById('app').innerText = state.msg
+  })
+  // 定时更新响应式数据
+  setInterval(()=>{
+    state.msg = 'message' + Math.random()
+  },1000)
+</script>
